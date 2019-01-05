@@ -1,16 +1,25 @@
 package com.example.polls.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.Objects;
 
-/**
- * Created by rajeevkumarsingh on 20/11/17.
- */
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "choices")
+@Getter
+@Setter
 public class Choice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,47 +34,26 @@ public class Choice {
     private Poll poll;
 
     public Choice() {
-
     }
 
-    public Choice(String text) {
+    public Choice(final String text) {
         this.text = text;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Poll getPoll() {
-        return poll;
-    }
-
-    public void setPoll(Poll poll) {
-        this.poll = poll;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Choice choice = (Choice) o;
-        return Objects.equals(id, choice.id);
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if ((o == null) || (this.getClass() != o.getClass())) {
+            return false;
+        }
+        final Choice choice = (Choice) o;
+        return Objects.equals(this.id, choice.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(this.id);
     }
 }

@@ -1,21 +1,20 @@
 package com.example.polls.repository;
 
-import com.example.polls.model.Poll;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
+import com.example.polls.model.Poll;
 
-/**
- * Created by rajeevkumarsingh on 20/11/17.
- */
 @Repository
 public interface PollRepository extends JpaRepository<Poll, Long> {
 
+    @Override
     Optional<Poll> findById(Long pollId);
 
     Page<Poll> findByCreatedBy(Long userId, Pageable pageable);

@@ -1,41 +1,25 @@
 package com.example.polls.model.audit;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import javax.persistence.MappedSuperclass;
+
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 
-import javax.persistence.MappedSuperclass;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Created by rajeevkumarsingh on 19/08/17.
- */
+import lombok.Getter;
+import lombok.Setter;
 
 @MappedSuperclass
-@JsonIgnoreProperties(
-        value = {"createdBy", "updatedBy"},
-        allowGetters = true
-)
+@JsonIgnoreProperties(value = { "createdBy", "updatedBy" }, allowGetters = true)
+@Getter
+@Setter
 public abstract class UserDateAudit extends DateAudit {
+    private static final long serialVersionUID = -5668994881302355970L;
 
     @CreatedBy
     private Long createdBy;
 
     @LastModifiedBy
     private Long updatedBy;
-
-    public Long getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(Long createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Long getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(Long updatedBy) {
-        this.updatedBy = updatedBy;
-    }
 }

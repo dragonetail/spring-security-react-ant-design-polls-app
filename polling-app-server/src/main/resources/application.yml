@@ -1,0 +1,33 @@
+ 
+app:
+  jwtExpirationInMs: 604800000
+  jwtSecret: JWTSuperSecretKey
+   
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+
+server:
+  compression:
+    enabled: true
+  port: 5000
+  
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/photosaver?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=falseuseUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root1234
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: UTC
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        
+        
