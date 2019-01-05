@@ -1,5 +1,33 @@
 ## Building a Full Stack Polls app similar to twitter polls with Spring Boot, Spring Security, JWT, React and Ant Design
 
+
+
+### 整理
+
+整理Backend代码，梳理警告，优化pom.xml文件
+
+TODO： 
+
+1、待确定问题
+
+1.1、确定是否引入querydsl，调整查询方式，目前使用JQL方式，代码重构和有效性校验弱一些，使用QDSL代价。。查询结果Bean的定义、使用和抽象规则清晰化
+
+1.2、Controller和Service逻辑分层原则清晰化，目前Service弱化
+
+1.3、画面请求、返回Bean（DTO）的清晰化，是否需要数据Converter层处理？
+
+2、整理Common部分，与业务部分分离
+
+3、完善Common部分功能
+
+4、完善DB初始化工作
+
+5、迁移上传代码
+
+6、完善上传数据的持久化处理
+
+
+
 ### Tutorials
 
 I've written a complete tutorial series for this application on The CalliCoder Blog -
