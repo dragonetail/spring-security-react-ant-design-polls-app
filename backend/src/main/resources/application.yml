@@ -1,14 +1,13 @@
  
-app:
-  jwtExpirationInMs: 604800000
-  jwtSecret: JWTSuperSecretKey
-   
 logging:
   level:
     org:
       hibernate:
         SQL: DEBUG
-
+app:
+  jwtExpirationInMs: 30000  # 7 * 24 * 3600 * 1000
+  jwtSecret: JWTSuperSecretKey@PhotoSaver
+   
 server:
   compression:
     enabled: true
